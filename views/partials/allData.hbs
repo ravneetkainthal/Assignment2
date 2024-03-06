@@ -1,0 +1,104 @@
+ {{!-- <!-- STEP 7 -->
+
+<h1>{{title}}</h1>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 2px solid black;  
+    padding: 8px;
+    text-align: left;
+    background-color: snow;
+  }
+
+th{
+    color: white;
+    background-color: plum;
+  }
+  
+</style>
+<table>
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Reviews</th>
+      <th>Category</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    {{#if reviews}}  <!-- STEP 8 CHECKING IF REVIEW IS NOT ZERO -->
+    <tr>
+      <td>{{title}}</td>
+      <td>{{price}}</td>
+      <td>{{reviews}}</td>
+      <td>{{categoryName}}</td>
+      <td><img src="{{imgUrl}}" alt="{{title}}" style="max-width: 100px; max-height: 100px;"></td>
+    </tr>
+       {{/if}}
+     
+    {{/each}}
+  </tbody>
+</table> 
+
+ --}}
+
+
+ <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 2px solid black;  
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      color: white;
+      background-color: plum;
+    }
+
+    .zeroColor {
+      background-color: lightgreen;
+    }
+  </style>
+
+  <h1>{{title}}</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Stars</th>
+        <th>Reviews</th>
+        <th>Category</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+      {{#if (valueNotZero this.reviews)}}
+      <tr>
+      {{else}}
+      <tr class="zeroColor">
+      {{/if}}
+        <td>{{this.title}}</td>
+        <td>{{this.price}}</td>
+        <td>{{this.stars}}</td>
+        <td>{{valueChangeToZero this.reviews}}</td>
+         {{!-- <td>{{ this.reviews}}</td>  STEP 10 --}}
+
+        <td>{{this.categoryName}}</td>
+        <td><img src="{{this.imgUrl}}" alt="" style="max-width: 100px; max-height: 100px;"></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>

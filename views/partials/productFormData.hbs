@@ -1,0 +1,10 @@
+<h1>Product Details:</h1>
+<p><strong>Title:</strong> {{ product.title }}</p>
+<p><strong>Category Name:</strong> {{ product.categoryName }}</p>
+<p><strong>List Price:</strong> ${{ product.listPrice }}</p>
+<p><strong>Price:</strong> ${{ product.price }}</p>
+<p><strong>Is Best Seller:</strong> {{ product.isBestSeller }}</p>
+<p><strong>Last Month Purchase Details:</strong> {{ product.boughtInLastMonth }}</p>
+<p><strong>Stars:</strong> {{ product.stars }}</p>
+<p><strong>Reviews:</strong> {{ product.reviews }}</p>
+<img src="{{ product.imgUrl }}" alt="{{ product.title }}" style="max-width: 320px;">

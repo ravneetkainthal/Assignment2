@@ -1,0 +1,15 @@
+{{#if foundProducts}}
+  <h1>Product Details:</h1> 
+  {{#each foundProducts}}
+  
+    <p><strong>Title:</strong> {{ this.title }}</p>
+    <p><strong>Category Name:</strong> {{ this.categoryName }}</p>
+    <p><strong>Price:</strong> ${{ this.price }}</p>
+    <p><strong>Stars:</strong> {{ this.stars }}</p>
+    <p><strong>Reviews:</strong> {{ this.reviews }}</p>
+    <img src="{{ this.imgUrl }}" alt="{{ this.title }}" style="max-width: 320px;">
+    <hr>
+  {{/each}}
+{{else}}
+  <h1>No products found matching the entered product name</h1>
+{{/if}}
